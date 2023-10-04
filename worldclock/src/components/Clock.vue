@@ -1,25 +1,31 @@
 <script setup>
 import { ref, computed, reactive, onMounted } from "vue";
-const currentTime = ref([]);
 
 const getTime = () => {
   let today = new Date();
   let hours = today.getHours();
   let minutes = today.getMinutes();
   let seconds = today.getSeconds();
-  return hours + ":" + minutes + ":" + seconds;
+  return (
+    hours +
+    ":" +
+    (minutes < 10 ? "0" : "") +
+    minutes +
+    ":" +
+    (seconds < 10 ? "0" : "") +
+    seconds
+  );
 };
 
-//console.log(getTime());
+console.log(getTime());
+let currentTime = ref(getTime());
 
 const createInterval = () => {
   setInterval(() => {
-    getTime();
-    console.log(getTime());
+    currentTime.value = getTime();
   }, 1000);
 };
-
-//console.log(createInterval())
+console.log(createInterval());
 
 //To do:
 //Need to see time on screen -> check computed on vue-mastery
@@ -30,6 +36,5 @@ const createInterval = () => {
 <template>
   <div class="allClocks">
     <h3>{{ currentTime }}</h3>
-    <p>check check</p>
   </div>
 </template>
