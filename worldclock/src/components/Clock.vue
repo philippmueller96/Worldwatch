@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, reactive, onMounted } from "vue";
+import { ref } from "vue";
 
 const getTime = () => {
   let today = new Date();
@@ -28,9 +28,9 @@ const createInterval = () => {
 console.log(createInterval());
 
 //To do:
-//Need to see time on screen -> check computed on vue-mastery
-//refer time to ref to keep it update
-//refer it to DOM
+//create object that contains data
+//let data get render on screen
+//    -> <div v-for(clock in clocks)>{clock.time}</div>
 </script>
 
 <template>
