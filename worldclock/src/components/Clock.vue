@@ -26,11 +26,6 @@ const createInterval = () => {
   }, 1000);
 };
 console.log(createInterval());
-
-//To do:
-//create object that contains data
-//let data get render on screen
-//    -> <div v-for(clock in clocks)>{clock.time}</div>
 </script>
 
 <template>
