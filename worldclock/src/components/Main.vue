@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import Clock from "./Clock.vue";
 
-let timeZones = ref([
+const timeZones = ref([
   {
     id: 1,
     time: "16:16",
@@ -14,6 +14,20 @@ let timeZones = ref([
     location: "London",
   },
 ]);
+
+function addClock(newID, newTime, newLocation) {
+  timeZones.value.push({
+    id: newID,
+    time: newTime,
+    location: newLocation,
+  });
+}
+
+function deleteClock(index) {
+  console.log(index);
+  console.log(this.timeZones);
+  this.timeZones.splice(index - 1, 1);
+}
 
 //Todo:
 // Button - Add new time
@@ -43,8 +57,22 @@ let timeZones = ref([
     <Clock />
     <div v-for="timeZone in timeZones" :key="timeZone.id">
       <h2>{{ timeZone.time }}</h2>
-      <button @click="console.log('delete Time')">Delete</button>
+      <button
+        @click="
+          console.log('delete Time clicked');
+          deleteClock(timeZone.id);
+        "
+      >
+        Delete
+      </button>
     </div>
-    <button @click="console.log('check')">Add new time</button>
+    <button
+      @click="
+        addClock(3, '6:55', 'Berlin');
+        console.log('new Time added');
+      "
+    >
+      Add new time
+    </button>
   </div>
 </template>
