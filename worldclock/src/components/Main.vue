@@ -54,7 +54,10 @@ function deleteClock(index) {
 
 <template>
   <div>
-    <Clock />
+    <div>
+      <Clock />
+      <h3>Your local time</h3>
+    </div>
     <div v-for="timeZone in timeZones" :key="timeZone.id">
       <h2>{{ timeZone.time }}</h2>
       <button
