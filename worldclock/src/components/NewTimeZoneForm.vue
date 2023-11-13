@@ -2,18 +2,42 @@
 import { ref } from "vue";
 import { v4 as uuidv4 } from "uuid";
 
-const newTime = ref("");
 const newLocation = ref("");
 
 const emitAddTimeZone = defineEmits(["addTimeZone"]);
 
-function addNewTimeZone() {
+async function addNewTimeZone() {
   const newID = uuidv4();
-  if (newTime.value && newLocation.value) {
-    emitAddTimeZone("addTimeZone", newID, newTime.value, newLocation.value);
-    newTime.value = "";
-    newLocation.value = "";
+  try {
+    const result = await fetchWorldTime(newLocation.value);
+    const newTime = result.hour + ":" + result.minute + ":" + result.second;
+
+    if (newTime) {
+      emitAddTimeZone("addTimeZone", newID, newTime, newLocation.value);
+      newLocation.value = "";
+    }
+  } catch (error) {
+    console.error("Error fetching world time:", error);
   }
+}
+
+async function fetchWorldTime(city) {
+  const apiKey = "syrfzxa2LemedbwMWv+o/g==z4C3ZT7OSnh7MgIm";
+  const url = `https://api.api-ninjas.com/v1/worldtime?city=${city}`;
+
+  const response = await fetch(url, {
+    method: "GET",
+    headers: {
+      "X-Api-Key": apiKey,
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`API call failed with status ${response.status}`);
+  }
+
+  return await response.json();
 }
 </script>
 
@@ -21,10 +45,6 @@ function addNewTimeZone() {
   <div class="newTimeZone">
     <h2>Add New Time Zone</h2>
     <form @submit.prevent="addNewTimeZone">
-      <div class="newTimeZone_content">
-        <label for="newTime">Time:</label>
-        <input type="text" v-model="newTime" required />
-      </div>
       <div class="newTimeZone_content">
         <label for="newLocation">Location:</label>
         <input type="text" v-model="newLocation" required />

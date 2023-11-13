@@ -17,7 +17,7 @@ const timeZones = ref([
   },
 ]);
 
-function addClock(newID, newTime, newLocation) {
+function addNewTime(newID, newTime, newLocation) {
   timeZones.value.push({
     id: newID,
     time: newTime,
@@ -71,5 +71,5 @@ function deleteClock(id) {
       </button>
     </div>
   </div>
-  <NewTimeZoneForm @addTimeZone="addClock" />
+  <NewTimeZoneForm @addTimeZone="addNewTime" />
 </template>
