@@ -1,15 +1,17 @@
 <script setup>
 import { ref } from "vue";
 import Clock from "./Clock.vue";
+import NewTimeZoneForm from "./NewTimeZoneForm.vue";
+import { v1 as uuidv1 } from "uuid";
 
 const timeZones = ref([
   {
-    id: 1,
+    id: uuidv1(),
     time: "16:16",
     location: "Spain",
   },
   {
-    id: 2,
+    id: uuidv1(),
     time: "15:15",
     location: "London",
   },
@@ -21,27 +23,20 @@ function addClock(newID, newTime, newLocation) {
     time: newTime,
     location: newLocation,
   });
+  console.log(timeZones.value);
 }
 
-function deleteClock(index) {
-  console.log(index);
-  console.log(this.timeZones);
-  this.timeZones.splice(index - 1, 1);
+function deleteClock(id) {
+  const index = timeZones.value.findIndex((timeZone) => timeZone.id === id);
+
+  if (index !== -1) {
+    timeZones.value.splice(index, 1);
+  }
 }
 
 //Todo:
 // Button - Add new time
-// new component
 // opens window and enter Location and time
-// add object to other objects
-//    --> .push()
-// render it
-
-//Button - Delete
-// opens window that contains: "Are you sure you want to delete this?"
-// remove Object from Array with id
-//    --> .pop()
-//render it
 
 //Search-function when new time gets added
 //enter location
@@ -53,14 +48,16 @@ function deleteClock(index) {
 </script>
 
 <template>
-  <div>
-    <div>
+  <div class="clockRow">
+    <div class="card">
       <Clock />
       <h3>Your local time</h3>
     </div>
-    <div v-for="timeZone in timeZones" :key="timeZone.id">
+    <div class="card" v-for="timeZone in timeZones" :key="timeZone.id">
       <h2>{{ timeZone.time }}</h2>
+      <p>{{ timeZone.location }}</p>
       <button
+        class="deleteBtn"
         @click="
           console.log('delete Time clicked');
           deleteClock(timeZone.id);
@@ -69,13 +66,6 @@ function deleteClock(index) {
         Delete
       </button>
     </div>
-    <button
-      @click="
-        addClock(3, '6:55', 'Berlin');
-        console.log('new Time added');
-      "
-    >
-      Add new time
-    </button>
   </div>
+  <NewTimeZoneForm @addTimeZone="addClock" />
 </template>
