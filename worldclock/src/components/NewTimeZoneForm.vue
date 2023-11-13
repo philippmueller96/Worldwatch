@@ -21,12 +21,14 @@ function addNewTimeZone() {
   <div class="newTimeZone">
     <h2>Add New Time Zone</h2>
     <form @submit.prevent="addNewTimeZone">
-      <label for="newTime">Time:</label>
-      <input type="text" v-model="newTime" required />
-
-      <label for="newLocation">Location:</label>
-      <input type="text" v-model="newLocation" required />
-
+      <div class="newTimeZone_content">
+        <label for="newTime">Time:</label>
+        <input type="text" v-model="newTime" required />
+      </div>
+      <div class="newTimeZone_content">
+        <label for="newLocation">Location:</label>
+        <input type="text" v-model="newLocation" required />
+      </div>
       <button type="submit">Add Time Zone</button>
     </form>
   </div>

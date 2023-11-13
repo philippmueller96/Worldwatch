@@ -45,6 +45,10 @@ function deleteClock(id) {
 //    if not: "location is not available"
 //add time and location (new object)
 //refresh each time every second
+
+//Clean up:
+// - classnames with BEM
+// - complete CSS
 </script>
 
 <template>

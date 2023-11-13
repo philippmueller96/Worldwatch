@@ -2,6 +2,7 @@ $cardBackground: #444;
 $mainBackground: #111;
 $btnBackgroundColor: #232323;
 $btnDeleteBackgroundColor: #db4f4f;
+$btnAddBackgroundColor: #6fb842;
 
 @mixin darkBtn($color, $percent) {
   background: darken($color, $percent);
@@ -71,31 +72,47 @@ body {
     width: 250px;
     gap: 20px;
 
+    &:hover {
+      box-shadow: 0 0 30px rgba($color: #333, $alpha: 1);
+      transform: scale(1.1, 1.1);
+      @include globalTransition(transform);
+      @include globalTransition(transform);
+    }
+
     .deleteBtn {
       background-color: $btnDeleteBackgroundColor;
+      &:hover {
+        @include darkBtn($btnDeleteBackgroundColor, 7%);
+      }
     }
-    .deleteBtn:hover {
-      @include darkBtn($btnDeleteBackgroundColor, 7%);
-    }
-  }
-
-  .card:hover {
-    box-shadow: 0 0 30px rgba($color: #333, $alpha: 1);
-    transform: scale(1.1, 1.1);
-    @include globalTransition(transform);
-    @include globalTransition(transform);
   }
 }
 
 .newTimeZone {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   margin-left: 40px;
   background-color: $cardBackground;
   border-radius: 10px;
   width: fit-content;
   padding: 20px 40px;
+  .newTimeZone_content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0px;
+
+    input {
+      height: 25px;
+      width: 100%;
+    }
+  }
+  button {
+    background-color: $btnAddBackgroundColor;
+    &:hover {
+      @include darkBtn($btnAddBackgroundColor, 5%);
+    }
+  }
 }
 
 button {
@@ -104,7 +121,8 @@ button {
   padding: 10px;
   border: none;
   border-radius: 5px;
-}
-button:hover {
-  @include darkBtn($btnBackgroundColor, 1%);
+  &:hover {
+    @include darkBtn($btnBackgroundColor, 1%);
+    cursor: pointer;
+  }
 }
