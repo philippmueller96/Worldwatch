@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 import Clock from "./Clock.vue";
 import NewTimeZoneForm from "./NewTimeZoneForm.vue";
 import { v1 as uuidv1 } from "uuid";
