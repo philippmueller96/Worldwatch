@@ -4,18 +4,7 @@ import Clock from "./Clock.vue";
 import NewTimeZoneForm from "./NewTimeZoneForm.vue";
 import { v1 as uuidv1 } from "uuid";
 
-const timeZones = ref([
-  {
-    id: uuidv1(),
-    time: "16:16",
-    location: "Barcelona",
-  },
-  {
-    id: uuidv1(),
-    time: "15:15",
-    location: "London",
-  },
-]);
+const timeZones = ref([]);
 
 function addNewTime(newID, newTime, newLocation) {
   timeZones.value.push({
