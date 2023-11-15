@@ -38,12 +38,6 @@ function deleteClock(id) {
 // Button - Add new time
 // opens window and enter Location and time
 
-//Search-function when new time gets added
-//enter location
-//API-Call for current time of location
-//check if location exists
-//    if not: "location is not available"
-//add time and location (new object)
 //refresh each time every second
 
 //Clean up:
