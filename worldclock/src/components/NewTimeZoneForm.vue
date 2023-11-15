@@ -8,6 +8,10 @@ const emitAddTimeZone = defineEmits(["addTimeZone"]);
 
 async function addNewTimeZone() {
   const newID = uuidv4();
+  if (containsNumbers(newLocation.value)) {
+    alert("Contains numbers. Please enter only letters.");
+    return;
+  }
   try {
     const result = await fetchWorldTime(newLocation.value);
     const newTime = result.hour + ":" + result.minute + ":" + result.second;
@@ -18,7 +22,12 @@ async function addNewTimeZone() {
     }
   } catch (error) {
     console.error("Error fetching world time:", error);
+    alert("Could not find your entered location. Please check and try again.");
   }
+}
+
+function containsNumbers(location) {
+  return /\d/.test(location);
 }
 
 async function fetchWorldTime(city) {

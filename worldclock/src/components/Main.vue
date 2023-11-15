@@ -1,21 +1,10 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import Clock from "./Clock.vue";
 import NewTimeZoneForm from "./NewTimeZoneForm.vue";
-import { v1 as uuidv1 } from "uuid";
 
-const timeZones = ref([
-  {
-    id: uuidv1(),
-    time: "16:16",
-    location: "Barcelona",
-  },
-  {
-    id: uuidv1(),
-    time: "15:15",
-    location: "London",
-  },
-]);
+const timeZones = ref([]);
+let intervalId;
 
 function addNewTime(newID, newTime, newLocation) {
   timeZones.value.push({
@@ -34,11 +23,30 @@ function deleteClock(id) {
   }
 }
 
-//Todo:
-// Button - Add new time
-// opens window and enter Location and time
+onMounted(() => {
+  startUpdatingTime();
+});
 
-//refresh each time every second
+onBeforeUnmount(() => {
+  clearInterval(intervalId);
+});
+
+function startUpdatingTime() {
+  intervalId = setInterval(() => {
+    timeZones.value.forEach((timeZone) => {
+      const [hours, minutes, seconds] = timeZone.time.split(":").map(Number);
+      const newSeconds = (seconds + 1) % 60;
+      const newMinutes = minutes + Math.floor((seconds + 1) / 60);
+      const newHours = (hours + Math.floor(newMinutes / 60)) % 24;
+
+      timeZone.time = `${String(newHours).padStart(2, "0")}:${String(
+        newMinutes
+      ).padStart(2, "0")}:${String(newSeconds).padStart(2, "0")}`;
+    });
+  }, 1000);
+}
+
+//Todo:
 
 //Clean up:
 // - classnames with BEM
@@ -46,9 +54,24 @@ function deleteClock(id) {
 </script>
 
 <template>
-  <div>
-    <Clock />
-    <button @click="console.log('check')">Add new time</button>
+  <div class="clockRow">
+    <div class="card">
+      <Clock />
+      <h3>Your local time</h3>
+    </div>
+    <div class="card" v-for="timeZone in timeZones" :key="timeZone.id">
+      <h2>{{ timeZone.time }}</h2>
+      <p>{{ timeZone.location }}</p>
+      <button
+        class="deleteBtn"
+        @click="
+          console.log('delete Time clicked');
+          deleteClock(timeZone.id);
+        "
+      >
+        Delete
+      </button>
+    </div>
   </div>
   <NewTimeZoneForm @addTimeZone="addNewTime" />
 </template>
