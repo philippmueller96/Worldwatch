@@ -8,7 +8,7 @@ const timeZones = ref([
   {
     id: uuidv1(),
     time: "16:16",
-    location: "Spain",
+    location: "Barcelona",
   },
   {
     id: uuidv1(),

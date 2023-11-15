@@ -35,6 +35,7 @@ async function fetchWorldTime(city) {
 
   if (!response.ok) {
     throw new Error(`API call failed with status ${response.status}`);
+    alert("Something went wrong!");
   }
 
   return await response.json();
