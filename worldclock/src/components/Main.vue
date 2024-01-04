@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
-import Clock from "./Clock.vue";
+import LocalTime from "./LocalTime.vue";
 import NewTimeZoneForm from "./NewTimeZoneForm.vue";
 
 const timeZones = ref([]);
@@ -54,16 +54,16 @@ function startUpdatingTime() {
 </script>
 
 <template>
-  <div class="clockRow">
+  <div class="main__watchesRow">
     <div class="card">
-      <Clock />
+      <LocalTime />
       <h3>Your local time</h3>
     </div>
     <div class="card" v-for="timeZone in timeZones" :key="timeZone.id">
       <h2>{{ timeZone.time }}</h2>
       <p>{{ timeZone.location }}</p>
       <button
-        class="deleteBtn"
+        class="card__button--delete"
         @click="
           console.log('delete Time clicked');
           deleteClock(timeZone.id);

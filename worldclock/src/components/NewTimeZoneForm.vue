@@ -55,7 +55,7 @@ async function fetchWorldTime(city) {
   <div class="newTimeZone">
     <h2>Add New Time Zone</h2>
     <form @submit.prevent="addNewTimeZone">
-      <div class="newTimeZone_content">
+      <div class="newTimeZone__content">
         <label for="newLocation">Location:</label>
         <input type="text" v-model="newLocation" required />
       </div>

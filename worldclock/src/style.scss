@@ -51,7 +51,7 @@ body {
   }
 }
 
-.clockRow {
+.main__watchesRow {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -79,7 +79,7 @@ body {
       @include globalTransition(transform);
     }
 
-    .deleteBtn {
+    .card__button--delete {
       background-color: $btnDeleteBackgroundColor;
       &:hover {
         @include darkBtn($btnDeleteBackgroundColor, 7%);
@@ -97,7 +97,7 @@ body {
   width: fit-content;
   padding: 20px 40px;
 
-  .newTimeZone_content {
+  .newTimeZone__content {
     display: flex;
     align-items: center;
     gap: 10px;

@@ -18,18 +18,18 @@ const getTime = () => {
 };
 
 console.log(getTime());
-let currentTime = ref(getTime());
+let localTime = ref(getTime());
 
 const createInterval = () => {
   setInterval(() => {
-    currentTime.value = getTime();
+    localTime.value = getTime();
   }, 1000);
 };
 console.log(createInterval());
 </script>
 
 <template>
-  <div class="allClocks">
-    <h3>{{ currentTime }}</h3>
+  <div>
+    <h3>{{ localTime }}</h3>
   </div>
 </template>
