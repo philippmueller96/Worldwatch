@@ -46,11 +46,6 @@ function startUpdatingTime() {
   }, 1000);
 }
 
-//Todo:
-
-//Clean up:
-// - classnames with BEM
-// - complete CSS
 </script>
 
 <template>
