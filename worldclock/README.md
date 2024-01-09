@@ -27,6 +27,9 @@ Sei also gespannt auf alles weitere! :)
 
 - Video als Hintergrund einbinden
   - Schwarzer Fade über die Hälfte des Bildschirms
+    https://www.w3schools.com/howto/howto_css_fullscreen_video.asp
+- Logo entwerfen und einbinden
+  - Zwei W untereinander und Negativ von Erde ausschneiden
 
 #### Strukturelle Anpassungen
 
