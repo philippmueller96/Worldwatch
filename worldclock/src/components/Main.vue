@@ -45,7 +45,6 @@ function startUpdatingTime() {
     });
   }, 1000);
 }
-
 </script>
 
 <template>
