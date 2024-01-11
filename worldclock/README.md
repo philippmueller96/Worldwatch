@@ -22,8 +22,6 @@ Sei also gespannt auf alles weitere! :)
     > https://www.w3schools.com/howto/howto_css_fullscreen_video.asp
 - Logo entwerfen und einbinden
   - Zwei W untereinander und Negativ von Erde ausschneiden
-- README.md
-  - Syntax für Codeblöcke herausfinden
 
 #### Strukturelle Anpassungen
 
@@ -37,17 +35,20 @@ Sei also gespannt auf alles weitere! :)
 
 ## Installation
 
+1. npm install
+2. Erstelle die Datei ... in diesem Pfad
+   > ./...
+   ***
+   - die API läuft über [api-ninja.com](https://api-ninjas.com/api/worldtime)
+   - erstelle dir dort kostenlos einen Account und kopiere deinen Token in den vorgesehenen Platzhalter
+
 ## Verwendung
 
 Ich verwende hier Vue.js und SCSS. Falls dir beides noch nicht bekannt sein sollte, findest du hier die Dokumentation:
 
-### Vue.js
+### [Vue.js](https://vuejs.org/guide/introduction.html)
 
-> https://vuejs.org/guide/introduction.html
-
-### SCSS
-
-> https://sass-guidelin.es/#introduction
+### [SCSS](https://sass-guidelin.es/#introduction)
 
 ## Funktionalität
 
