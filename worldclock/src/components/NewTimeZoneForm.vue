@@ -56,10 +56,17 @@ async function fetchWorldTime(city) {
     <h2>Add New Time Zone</h2>
     <form @submit.prevent="addNewTimeZone">
       <div class="newTimeZone__content">
-        <label for="newLocation">Location:</label>
-        <input type="text" v-model="newLocation" required />
+        <label for="newLocation"></label>
+        <input
+          type="text"
+          v-model="newLocation"
+          placeholder="Location"
+          required
+        />
       </div>
-      <button type="submit">Add Time Zone</button>
+      <div class="button_container">
+        <button type="submit">Add Time Zone</button>
+      </div>
     </form>
   </div>
 </template>
