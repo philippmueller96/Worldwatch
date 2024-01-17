@@ -1,7 +1,8 @@
 <script setup>
 import BackgroundVideo from "./components/BackgroundVideo.vue";
 import Header from "./components/Header.vue";
-import Main from "./components/Main.vue";
+import TimeZones from "./components/TimeZones.vue";
+import InfoTimeZones from "./components/InfoTimeZones.vue";
 import Footer from "./components/Footer.vue";
 </script>
 
@@ -9,7 +10,8 @@ import Footer from "./components/Footer.vue";
   <div>
     <BackgroundVideo></BackgroundVideo>
     <Header></Header>
-    <Main></Main>
+    <TimeZones></TimeZones>
+    <InfoTimeZones></InfoTimeZones>
     <Footer></Footer>
   </div>
 </template>
