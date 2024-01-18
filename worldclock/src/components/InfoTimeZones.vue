@@ -79,10 +79,10 @@
     <div>
       <h2>Hilfreiche Videos</h2>
       <div class="info_container-videos">
-        <div class="responsive-container">
+        <div class="iframe_container">
           <iframe src="https://www.youtube.com/embed/7vQ7ECAwhCk"></iframe>
         </div>
-        <div class="responsive-container">
+        <div class="iframe_container">
           <iframe src="https://www.youtube.com/embed/jzwdOuJgka8"></iframe>
         </div>
       </div>
