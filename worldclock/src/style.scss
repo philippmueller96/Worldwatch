@@ -2,7 +2,7 @@ $cardBackground: rgba(255, 255, 255, 0.1);
 $mainBackground: #111;
 $btnDeleteBackgroundColor: #db4f4f;
 $btnAddBackgroundColor: #6fb842;
-$backgroundBlurSize: 10px;
+$backgroundBlurSize: 20px;
 
 @mixin darkBtn($color, $percent) {
   background: darken($color, $percent);
@@ -154,6 +154,12 @@ body {
 
   h3 {
     margin-bottom: 10px;
+  }
+
+  iframe {
+    height: 100%;
+    border: none;
+    border-radius: 20px;
   }
 }
 
