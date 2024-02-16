@@ -8,13 +8,6 @@ Sei also gespannt auf alles weitere! :)
 
 ### ToDo:
 
-#### Funktionen
-
-- Bewertungssystem
-  - als Formular
-  - mehrer Bewertungen anzeigen lassen
-    - als Cards
-
 #### Optisch
 
 - Logo entwerfen und einbinden
@@ -25,9 +18,6 @@ Sei also gespannt auf alles weitere! :)
 - in eigenen Ordner packen
   - deleteClock
   - CSS u. SCSS
-- Einleitung einfügen
-- Video mit Tutorial einbinden
-  - weitere Sektion der Seite
 - Bewertungsformular einfügen
 
 ## Installation
