@@ -162,7 +162,3 @@ API-call with new location </br>
         });
       }, 1000);
     }
-
-## Changelog
-
-commits überprüfen und nachträglich eingeben
