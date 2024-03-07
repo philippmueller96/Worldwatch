@@ -31,7 +31,7 @@ function containsNumbers(location) {
 }
 
 async function fetchWorldTime(city) {
-  const apiKey = "syrfzxa2LemedbwMWv+o/g==z4C3ZT7OSnh7MgIm";
+  const apiKey = import.meta.env.VITE_API_KEY;
   const url = `https://api.api-ninjas.com/v1/worldtime?city=${city}`;
 
   const response = await fetch(url, {
