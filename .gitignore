@@ -1,0 +1,4 @@
+# These files will be ignored
+
+todo.md
+.env

@@ -6,28 +6,18 @@ Worldwatch dient außerdem der Vermittlung über das Prinzip der Zeitzonen. Du w
 
 Sei also gespannt auf alles weitere! :)
 
-### ToDo:
-
-#### Optisch
-
-- Logo entwerfen und einbinden
-  - Zwei W untereinander und Negativ von Erde ausschneiden
-
-#### Strukturelle Anpassungen
-
-- in eigenen Ordner packen
-  - deleteClock
-  - CSS u. SCSS
-- Bewertungsformular einfügen
-
 ## Installation
 
 1. npm install
-2. Erstelle die Datei ... in diesem Pfad
-   > ./...
-   ***
-   - die API läuft über [api-ninja.com](https://api-ninjas.com/api/worldtime)
-   - erstelle dir dort kostenlos einen Account und kopiere deinen Token in den vorgesehenen Platzhalter
+2. Erstelle eine .env in Root
+3. Erstelle dir bei [api-ninja.com](https://api-ninjas.com/api/worldtime) einen Account
+   - in den Einstellungen findest du deinen Token
+   - Kopiere deinen Token
+4. Füge in der .env folgendes mit deinem Token ein
+
+- VITE_API_KEY="Dein Key"
+
+5. npm run dev
 
 ## Verwendung
 
